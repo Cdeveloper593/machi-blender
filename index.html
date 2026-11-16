@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>MACHI — one small town, one whole day</title>
+  <meta name="description" content="Scroll to fly through Machi, a miniature clay Japanese town, from morning to lantern light." />
+  <meta name="theme-color" content="#F7F0E1" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='4' width='52' height='56' rx='14' fill='%237FA36B'/%3E%3Ccircle cx='32' cy='30' r='11' fill='%23F7F0E1'/%3E%3C/svg%3E" />
+  <style>
+    :root, .sw-root {
+      --sw-bg: #F7F0E1;          /* the day scenes' background colour */
+      --sw-ink: #2b2430;
+      --sw-ink-soft: #6a6072;
+      --sw-accent: #7FA36B;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <h1 class="visually-hidden">MACHI — one small town, one whole day</h1>
+  <div id="world"></div>
+  <div id="finale"></div>
+  <noscript>
+    <div style="max-width:640px;margin:8vh auto;padding:0 20px;text-align:center;font-family:system-ui,sans-serif;color:#2b2430;">
+      <img src="assets/arrival.jpg" alt="Machi, a miniature clay Japanese town" style="width:100%;border-radius:16px;" />
+      <p style="font-size:1.1rem;line-height:1.6;">MACHI is a scroll-driven flight through a miniature clay Japanese town, from morning to lantern light. It needs JavaScript enabled to fly — please turn it on and scroll.</p>
+    </div>
+  </noscript>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'MACHI まち', href: '#top' },
+      cta: { label: 'Start your world', href: '#finale' },
+      hint: 'scroll to fly in',
+      diveScroll: 1.3,
+      connScroll: 0.9,
+      sections: [
+        {
+          id: 'arrival', label: 'Arrival',
+          still: 'assets/arrival.jpg',
+          clip: 'assets/vid/scene1.mp4',
+          accent: '#7FA36B',
+          eyebrow: 'A scroll-world demo',
+          title: 'One small town, one whole day.',
+          body: 'Scroll, and fly through Machi from first light to lantern light — no cuts, one continuous flight.',
+          tags: ['Clay diorama', 'Day to night', 'One take'],
+        },
+        {
+          id: 'shotengai', label: 'Shotengai',
+          still: 'assets/shotengai.jpg',
+          clip: 'assets/vid/scene2.mp4',
+          accent: '#E4572E',
+          eyebrow: 'Late morning',
+          title: 'The street that feeds the town.',
+          body: 'Bakeries, noodle shops and bicycles — the everyday heart of Machi, modelled in clay.',
+          tags: ['Shotengai', 'Street level'],
+        },
+        {
+          id: 'canal', label: 'The Canal',
+          still: 'assets/canal.jpg',
+          clip: 'assets/vid/scene3.mp4',
+          accent: '#2E4057',
+          eyebrow: 'Golden afternoon',
+          title: 'Slow water, slower afternoons.',
+          body: 'Carp streamers over the canal, willows trailing in the water, and nowhere to be in a hurry.',
+          tags: ['Canal', 'Koinobori'],
+        },
+        {
+          id: 'shrine', label: 'Shrine Steps',
+          still: 'assets/shrine.jpg',
+          clip: 'assets/vid/scene4.mp4',
+          accent: '#F2A541',
+          eyebrow: 'Dusk',
+          title: 'The lanterns wake up first.',
+          body: 'Up the shrine steps as the stone lanterns flicker on and the sky turns to peach.',
+          tags: ['Shrine steps', 'First lights'],
+        },
+        {
+          id: 'nightmarket', label: 'Night Market',
+          still: 'assets/nightmarket.jpg',
+          clip: 'assets/vid/scene5.mp4',
+          accent: '#E4572E',
+          eyebrow: 'After dark',
+          title: 'The alley that glows.',
+          body: 'Steam, paper lanterns and midnight snacks — Machi stays up late.',
+          tags: ['Night market', 'Lantern glow'],
+        },
+        {
+          id: 'finale', label: 'The Lantern',
+          still: 'assets/finale.jpg',
+          clip: 'assets/vid/scene6.mp4',
+          accent: '#F2A541',
+          eyebrow: 'Your world next',
+          title: 'Every brand deserves a world.',
+          body: 'Machi is a demo. Your town, shop or story could be the next one visitors fly through.',
+          tags: [],
+          cta: { primary: { label: 'Start your world', href: '#finale' },
+                 secondary: { label: 'Back to morning', href: '#top' } },
+        },
+      ],
+      connectors: [
+        'assets/vid/conn1.mp4',
+        'assets/vid/conn2.mp4',
+        'assets/vid/conn3.mp4',
+        'assets/vid/conn4.mp4',
+        'assets/vid/conn5.mp4',
+      ],
+    });
+  </script>
+</body>
+</html>
